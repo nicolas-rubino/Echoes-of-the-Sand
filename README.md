@@ -1,2 +1,2 @@
 # Echoes-of-the-Sand
- Game project for sumputer science class at lasalle College in Unity
+ Game project for college lasalle computer science class in Unity
