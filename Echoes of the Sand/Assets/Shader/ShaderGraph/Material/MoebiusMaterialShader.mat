@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MoebiusMaterialShader
+  m_Shader: {fileID: -6465566751694194690, guid: e22d0dfbcd81c4943950f7a1610f7940,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - REQUIRE_DEPTH_TEXTURE
+  - REQUIRE_OPAQUE_TEXTURE
+  - _COLORS
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ShadowMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - REQUIRE_DEPTH_TEXTURE_1: 0
+    - REQUIRE_OPAQUE_TEXTURE: 1
+    - REQUIRE_OPAQUE_TEXTURE_: 1
+    - REQUIRE_OPAQUE_TEXTURE_1: 1
+    - _COLORS: 1
+    - _COLOR_MAP: 0
+    - _ColorStrentgh: 0.9
+    - _ColorThreshold: 1.5
+    - _ColorTickness: 1
+    - _DepthStrength: 2.52
+    - _DepthThreshold: 0.3
+    - _DepthTickness: 0.2
+    - _NORMAL_MAP: 0
+    - _NormalStrength: 1
+    - _NormalThreshold: 2.5
+    - _NormalTickness: 100
+    - _OPAQUE_MAP: 0
+    - _PerturbationFactor: 0.509
+    - _Scale: 300
+    - _Size: 20
+    - _Wiggle: 0.0005
+    - _tickness: 0.001
+    m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2: {r: -0.31, g: 38.57, b: 0, a: 0}
+  m_BuildTextureStacks: []
