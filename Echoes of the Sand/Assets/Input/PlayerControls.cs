@@ -24,67 +24,31 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Player Movement"",
-            ""id"": ""57401fb1-360f-456e-99c0-ea000221cb9d"",
+            ""name"": ""Player"",
+            ""id"": ""7e845ddb-ee56-4767-b8e5-f0d378d6a392"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""84128068-7a6b-4e1f-9225-e777ea69a690"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Sprint"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a49c626-eef3-4875-9eac-c429665cc9ae"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""c4b6761a-ec18-4486-9e62-c930a1548eef"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""cam"",
-                    ""type"": ""Value"",
-                    ""id"": ""fbde5546-7160-4e33-8349-9236d0b0e906"",
+                    ""id"": ""cc2d71cc-d4ed-41ae-bf61-4a0765c4bda8"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interation"",
-                    ""type"": ""Button"",
-                    ""id"": ""95726edf-f7f6-408e-a793-c8832c3b32a2"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Turn"",
+                    ""type"": ""Value"",
+                    ""id"": ""7736a9ce-b798-4bae-857e-36694827c9f3"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Aiming"",
                     ""type"": ""Button"",
-                    ""id"": ""5a70f8e5-ad48-4b20-bae9-cc8ba523f30a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Shooting"",
-                    ""type"": ""Button"",
-                    ""id"": ""f77cd643-595c-49c2-ba17-f4f5dd174959"",
+                    ""id"": ""69560a23-e001-41d8-84a4-69c9757c3ecf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -93,184 +57,118 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""2018b74e-1eaf-48f6-a830-c0820ecdbfeb"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": ""Keyboard"",
+                    ""id"": ""08b58eab-93ff-4386-8d98-ebbabb6915e6"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""ae05eed3-047e-4c61-ba45-702d42fdf499"",
+                    ""id"": ""de7b1bc5-84da-40ee-8290-a1a482f1f154"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""1403fc18-569f-4d55-ba50-7ad504fef389"",
+                    ""id"": ""b4fda0cd-4ac5-48fb-8856-ec1340f9ec4c"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""acfc554e-0ffd-4402-bab7-1e0aeb925982"",
+                    ""id"": ""cd0cbfb0-1bff-4818-9b60-f882abeebd3a"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""efcadc28-038c-4385-b661-8f60da2c878a"",
+                    ""id"": ""facd1d48-4ac4-4bf5-a89a-e95dc2e9ff03"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Left Stick"",
-                    ""id"": ""c1be3b0e-c973-4349-bbb0-9fd399ca8fd1"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": ""Controller"",
+                    ""id"": ""72438fbf-6e76-41a0-a9c2-aa722220b019"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""c62c4508-cbb5-4877-9c77-7c06b8ddcf37"",
+                    ""id"": ""9cfd2ded-5094-4056-bbca-bf9726389eb8"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""75b5c0ab-c30b-4b45-b508-49c2b297fe68"",
+                    ""id"": ""90ea31f6-1ec1-4427-a367-a9f26a02643e"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""3dd30bef-3c3b-4bdb-91f5-bf5f22c30d75"",
+                    ""id"": ""cc8bdcbc-3647-4442-a16c-918edf75d3d7"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""1d261081-8907-4d64-827e-3c7e31666a7d"",
+                    ""id"": ""965b8731-6cd2-4bb9-9adb-d5a3e386b733"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a15cf054-8de9-4230-8237-2ef3d0232a5c"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""363a74d8-e906-46dc-a5cf-f8d30de771c3"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c97ec780-aa49-40ba-b8e5-de6a8520e06b"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""feba2f2c-2ee9-4ac5-b63d-93cd8eb61942"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0a45dd09-64f3-440a-ac9b-33f4f8bc4bb1"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""022dc037-0755-4c4a-93a6-f3056f5cd275"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""309aa349-cff7-4156-a605-02f7a585c26d"",
+                    ""id"": ""2558aa06-a186-47be-8f5b-d339db8345ee"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -281,37 +179,111 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e5b2cf3d-0e9d-4994-b88f-a884fde8257b"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""e9192ba7-a3aa-41e1-9422-4188a82a5cb1"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shooting"",
+                    ""action"": ""Aiming"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""7e7c6127-f8b9-43b4-b232-33d495bd73f9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""78514a17-3775-46b7-b875-b5ef5f27e0d2"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b98e96d0-3730-4c30-9ddc-633dbdcfe397"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""78dba91f-9084-4d04-9660-919fa0ebb63b"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7d4333d8-df87-47c1-9356-2cc793fda362"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
         {
-            ""name"": ""Hoverbike"",
-            ""id"": ""45c263f5-647f-43e4-b2ae-fd52b9e6bce0"",
-            ""actions"": [],
-            ""bindings"": []
+            ""name"": ""Vehicle"",
+            ""id"": ""7b050794-ed2b-4c7e-921f-643683b36f3c"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""537b0612-abb1-4cd0-803a-7ddb3ac2ed98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""12b67d00-1258-41bb-81cd-a309a0d91309"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Player Movement
-        m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
-        m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerMovement_Sprint = m_PlayerMovement.FindAction("Sprint", throwIfNotFound: true);
-        m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
-        m_PlayerMovement_cam = m_PlayerMovement.FindAction("cam", throwIfNotFound: true);
-        m_PlayerMovement_Interation = m_PlayerMovement.FindAction("Interation", throwIfNotFound: true);
-        m_PlayerMovement_Aiming = m_PlayerMovement.FindAction("Aiming", throwIfNotFound: true);
-        m_PlayerMovement_Shooting = m_PlayerMovement.FindAction("Shooting", throwIfNotFound: true);
-        // Hoverbike
-        m_Hoverbike = asset.FindActionMap("Hoverbike", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Turn = m_Player.FindAction("Turn", throwIfNotFound: true);
+        m_Player_Aiming = m_Player.FindAction("Aiming", throwIfNotFound: true);
+        // Vehicle
+        m_Vehicle = asset.FindActionMap("Vehicle", throwIfNotFound: true);
+        m_Vehicle_Newaction = m_Vehicle.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -370,148 +342,121 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player Movement
-    private readonly InputActionMap m_PlayerMovement;
-    private List<IPlayerMovementActions> m_PlayerMovementActionsCallbackInterfaces = new List<IPlayerMovementActions>();
-    private readonly InputAction m_PlayerMovement_Movement;
-    private readonly InputAction m_PlayerMovement_Sprint;
-    private readonly InputAction m_PlayerMovement_Pause;
-    private readonly InputAction m_PlayerMovement_cam;
-    private readonly InputAction m_PlayerMovement_Interation;
-    private readonly InputAction m_PlayerMovement_Aiming;
-    private readonly InputAction m_PlayerMovement_Shooting;
-    public struct PlayerMovementActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Turn;
+    private readonly InputAction m_Player_Aiming;
+    public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
-        public PlayerMovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
-        public InputAction @Sprint => m_Wrapper.m_PlayerMovement_Sprint;
-        public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
-        public InputAction @cam => m_Wrapper.m_PlayerMovement_cam;
-        public InputAction @Interation => m_Wrapper.m_PlayerMovement_Interation;
-        public InputAction @Aiming => m_Wrapper.m_PlayerMovement_Aiming;
-        public InputAction @Shooting => m_Wrapper.m_PlayerMovement_Shooting;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
+        public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Turn => m_Wrapper.m_Player_Turn;
+        public InputAction @Aiming => m_Wrapper.m_Player_Aiming;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerMovementActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerMovementActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
-            @cam.started += instance.OnCam;
-            @cam.performed += instance.OnCam;
-            @cam.canceled += instance.OnCam;
-            @Interation.started += instance.OnInteration;
-            @Interation.performed += instance.OnInteration;
-            @Interation.canceled += instance.OnInteration;
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Turn.started += instance.OnTurn;
+            @Turn.performed += instance.OnTurn;
+            @Turn.canceled += instance.OnTurn;
             @Aiming.started += instance.OnAiming;
             @Aiming.performed += instance.OnAiming;
             @Aiming.canceled += instance.OnAiming;
-            @Shooting.started += instance.OnShooting;
-            @Shooting.performed += instance.OnShooting;
-            @Shooting.canceled += instance.OnShooting;
         }
 
-        private void UnregisterCallbacks(IPlayerMovementActions instance)
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
-            @cam.started -= instance.OnCam;
-            @cam.performed -= instance.OnCam;
-            @cam.canceled -= instance.OnCam;
-            @Interation.started -= instance.OnInteration;
-            @Interation.performed -= instance.OnInteration;
-            @Interation.canceled -= instance.OnInteration;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Turn.started -= instance.OnTurn;
+            @Turn.performed -= instance.OnTurn;
+            @Turn.canceled -= instance.OnTurn;
             @Aiming.started -= instance.OnAiming;
             @Aiming.performed -= instance.OnAiming;
             @Aiming.canceled -= instance.OnAiming;
-            @Shooting.started -= instance.OnShooting;
-            @Shooting.performed -= instance.OnShooting;
-            @Shooting.canceled -= instance.OnShooting;
         }
 
-        public void RemoveCallbacks(IPlayerMovementActions instance)
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerMovementActions instance)
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerMovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
 
-    // Hoverbike
-    private readonly InputActionMap m_Hoverbike;
-    private List<IHoverbikeActions> m_HoverbikeActionsCallbackInterfaces = new List<IHoverbikeActions>();
-    public struct HoverbikeActions
+    // Vehicle
+    private readonly InputActionMap m_Vehicle;
+    private List<IVehicleActions> m_VehicleActionsCallbackInterfaces = new List<IVehicleActions>();
+    private readonly InputAction m_Vehicle_Newaction;
+    public struct VehicleActions
     {
         private @PlayerControls m_Wrapper;
-        public HoverbikeActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputActionMap Get() { return m_Wrapper.m_Hoverbike; }
+        public VehicleActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Vehicle_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Vehicle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(HoverbikeActions set) { return set.Get(); }
-        public void AddCallbacks(IHoverbikeActions instance)
+        public static implicit operator InputActionMap(VehicleActions set) { return set.Get(); }
+        public void AddCallbacks(IVehicleActions instance)
         {
-            if (instance == null || m_Wrapper.m_HoverbikeActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_HoverbikeActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_VehicleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_VehicleActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
-        private void UnregisterCallbacks(IHoverbikeActions instance)
+        private void UnregisterCallbacks(IVehicleActions instance)
         {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
-        public void RemoveCallbacks(IHoverbikeActions instance)
+        public void RemoveCallbacks(IVehicleActions instance)
         {
-            if (m_Wrapper.m_HoverbikeActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_VehicleActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IHoverbikeActions instance)
+        public void SetCallbacks(IVehicleActions instance)
         {
-            foreach (var item in m_Wrapper.m_HoverbikeActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_VehicleActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_HoverbikeActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_VehicleActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public HoverbikeActions @Hoverbike => new HoverbikeActions(this);
-    public interface IPlayerMovementActions
+    public VehicleActions @Vehicle => new VehicleActions(this);
+    public interface IPlayerActions
     {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
-        void OnCam(InputAction.CallbackContext context);
-        void OnInteration(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnTurn(InputAction.CallbackContext context);
         void OnAiming(InputAction.CallbackContext context);
-        void OnShooting(InputAction.CallbackContext context);
     }
-    public interface IHoverbikeActions
+    public interface IVehicleActions
     {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
