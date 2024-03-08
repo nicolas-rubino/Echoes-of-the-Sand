@@ -47,6 +47,7 @@ public class HoverBike : MonoBehaviour
     [SerializeField] public bool playerMount = false;
     [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject player;
+    [SerializeField] CapsuleCollider playerCollider;
     [SerializeField] Transform seat;
     [SerializeField] Rigidbody playerRb;
     [SerializeField] Transform exit;
@@ -246,6 +247,7 @@ public class HoverBike : MonoBehaviour
             playerMount = true;
             playerRb.isKinematic = true;
             player.transform.position = seat.position;
+            playerCollider.enabled = false;
 
         }
         else
@@ -253,6 +255,7 @@ public class HoverBike : MonoBehaviour
             playerMount = false;
             player.transform.position = exit.position;
             playerRb.isKinematic = false;
+            playerCollider.enabled = true;
         }
     }
 
