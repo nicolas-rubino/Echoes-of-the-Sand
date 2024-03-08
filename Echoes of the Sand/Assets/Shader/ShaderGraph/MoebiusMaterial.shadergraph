@@ -31,6 +31,9 @@
         },
         {
             "m_Id": "b92beba8f64f480ab3813ac5b7569b82"
+        },
+        {
+            "m_Id": "d305253530364cb4938996bff75c506c"
         }
     ],
     "m_Dropdowns": [],
@@ -3551,6 +3554,31 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ShaderKeyword",
+    "m_ObjectId": "d305253530364cb4938996bff75c506c",
+    "m_Guid": {
+        "m_GuidSerialized": "b8d5b69c-8ead-4333-9eba-ccdd8437adef"
+    },
+    "m_Name": "terrain",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "terrain",
+    "m_DefaultReferenceName": "_TERRAIN",
+    "m_OverrideReferenceName": "TERRAINCOMPATIBLE",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_KeywordType": 0,
+    "m_KeywordDefinition": 1,
+    "m_KeywordScope": 0,
+    "m_KeywordStages": 63,
+    "m_Entries": [],
+    "m_Value": 0,
+    "m_IsEditable": true
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "d534a4a292e843caa2a9e351f812200c",
@@ -4125,6 +4153,9 @@
         },
         {
             "m_Id": "0ebdf73a55a142eeae715f7f3d299b65"
+        },
+        {
+            "m_Id": "d305253530364cb4938996bff75c506c"
         }
     ]
 }
