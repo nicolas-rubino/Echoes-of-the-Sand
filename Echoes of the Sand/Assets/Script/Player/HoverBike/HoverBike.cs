@@ -248,6 +248,7 @@ public class HoverBike : MonoBehaviour
             playerRb.isKinematic = true;
             player.transform.position = seat.position;
             playerCollider.enabled = false;
+            player.transform.parent = this.transform;
 
         }
         else
@@ -256,6 +257,7 @@ public class HoverBike : MonoBehaviour
             player.transform.position = exit.position;
             playerRb.isKinematic = false;
             playerCollider.enabled = true;
+            player.transform.parent =null;
         }
     }
 
