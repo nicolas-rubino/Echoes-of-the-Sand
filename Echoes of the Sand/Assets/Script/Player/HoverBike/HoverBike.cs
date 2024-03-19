@@ -29,7 +29,7 @@ public class HoverBike : MonoBehaviour
     [SerializeField] private bool hover = false;                                                //bool pour savoir si Hover
     [SerializeField] private float vitesseAjustement = 5f;                                      //vitesse de l'ajustement de l'hover
     [SerializeField] private float distanceHover = 3f;                                          //hauter desirer pour le hover du hoverbike
-    [SerializeField] private float maxHover = 10f;                                              //hauter max du hovering
+    [SerializeField] internal float maxHover = 10f;                                              //hauter max du hovering
     [SerializeField] internal List<GameObject> listeRayEngine = new List<GameObject>();         //liste des point pour les raycast afin de conaitre hauteur
     private List<float> ListeDistanceSol = new List<float>();                                   //liste de tout les hauteur
     private float distanceAjusteeAuSol;                                                         //moyenne des distance
@@ -45,7 +45,7 @@ public class HoverBike : MonoBehaviour
     //autre
     [Header("Player Seat")]
     [SerializeField] public bool playerMount = false;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] internal LayerMask layerMask;
     [SerializeField] GameObject player;
     [SerializeField] CapsuleCollider playerCollider;
     [SerializeField] Transform seat;

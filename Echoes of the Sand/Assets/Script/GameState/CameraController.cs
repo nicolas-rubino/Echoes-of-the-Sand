@@ -6,33 +6,33 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    [SerializeField] private CinemachineVirtualCamera thirdPersonCamera;
-    [SerializeField] private CinemachineVirtualCamera aimCamera;
+    //[SerializeField] private CinemachineVirtualCamera thirdPersonCamera;
+    //[SerializeField] private CinemachineVirtualCamera aimCamera;
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
 
-        if (InputManager.isAimingInput)
-        {
-            ActivateAimCamera();
-        }
-        else
-        {
-            ActivateThirdPersonCamera();
-        }
-        
-    }
+    //    if (InputManager.isAimingInput)
+    //    {
+    //        ActivateAimCamera();
+    //    }
+    //    else
+    //    {
+    //        ActivateThirdPersonCamera();
+    //    }
 
-    public void ActivateThirdPersonCamera()
-    {
-        thirdPersonCamera.Priority = 1;
-        aimCamera.Priority = 0;
-    }
+    //}
 
-    public void ActivateAimCamera()
-    {
-        thirdPersonCamera.Priority = 0;
-        aimCamera.Priority = 1;
-    }
+    //public void ActivateThirdPersonCamera()
+    //{
+    //    thirdPersonCamera.Priority = 1;
+    //    aimCamera.Priority = 0;
+    //}
+
+    //public void ActivateAimCamera()
+    //{
+    //    thirdPersonCamera.Priority = 0;
+    //    aimCamera.Priority = 1;
+    //}
 }
