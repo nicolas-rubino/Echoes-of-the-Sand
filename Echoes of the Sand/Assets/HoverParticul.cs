@@ -20,37 +20,47 @@ public class HoverParticul : MonoBehaviour
             GameObject objecInstance = Instantiate(hoverEffect, bike.listeRayEngine[i].transform.position, Quaternion.identity);
             objecInstance.transform.parent = this.transform;
             hoverParticles.Add(objecInstance);
-
         }
     }
 
     void Update()
     {
-        if (bike.playerMount)
+
+        for (int i = 0; i < hoverParticles.Count; i++)
         {
-            for (int i = 0; i < hoverParticles.Count; i++)
+            ParticleSystem particul = hoverParticles[i].GetComponent<ParticleSystem>();
+
+            // Lance un rayon vers le bas depuis la position de l'objet
+            Ray ray = new Ray(hoverParticles[i].transform.position, Vector3.down);
+            RaycastHit hit;
+
+            if (bike.playerMount)
             {
-                ParticleSystem particul = hoverParticles[i].GetComponent<ParticleSystem>();
-
-                // Lance un rayon vers le bas depuis la position de l'objet
-                Ray ray = new Ray(hoverParticles[i].transform.position, Vector3.down);
-                RaycastHit hit;
-
                 // Vérifie si le rayon touche quelque chose
-                if (Physics.Raycast(ray, out hit, bike.maxHover, bike.layerMask))
+                if (Physics.Raycast(ray, out hit, bike.maxHover+1f, bike.layerMask))
                 {
                     hoverParticles[i].transform.position = hit.point;
                     hoverParticles[i].transform.rotation = Quaternion.LookRotation(hit.normal);
-                    particul.Play(true);
+                    particul.Play();
 
                 }
                 else
                 {
-                    particul.Play(false);
+                    particul.Stop();
 
 
                 }
+
+
             }
+            else
+            {
+                particul.Stop();
+
+
+            }
+
         }
+
     }
 }
