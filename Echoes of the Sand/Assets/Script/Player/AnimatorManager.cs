@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimatorManager : MonoBehaviour
 {
     Animator animator;
-    InputManager inputManager;
+    //InputManager inputManager;
     PlayerMovement playerMovement;
     int horizontal;
     int vertical;
@@ -13,11 +13,12 @@ public class AnimatorManager : MonoBehaviour
     bool isWalking = false;
     bool isRunning = false;
     bool isSprinting = false;
+    bool isFalling = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        inputManager = GetComponent<InputManager>();
+        //inputManager = GetComponent<InputManager>();
         playerMovement = GetComponent<PlayerMovement>();
 
         horizontal = Animator.StringToHash("Horizontal");       //reference to the parameters in the Animator
@@ -31,11 +32,13 @@ public class AnimatorManager : MonoBehaviour
         isWalking = playerMovement.isWalking;
         isRunning = playerMovement.isRunning;
         isSprinting = playerMovement.isSprinting;
+        isFalling = playerMovement.isFalling;
 
         animator.SetBool(AnimationString.isIdle, isIdle);
         animator.SetBool(AnimationString.isWalking, isWalking);
         animator.SetBool(AnimationString.isRunning, isRunning);
         animator.SetBool(AnimationString.isSprinting, isSprinting);
+        animator.SetBool(AnimationString.isFalling, isFalling);
     }
 
     //will play any animation that we want when called, isInteracting is the bool the checks if the player is locked in an animation

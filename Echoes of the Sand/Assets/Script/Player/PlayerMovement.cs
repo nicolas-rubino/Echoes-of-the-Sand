@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float leapingVelocity;               //gives a little boost off the ledge when falling
     public float fallingVelocity;
     public float rayCastHeightOffSet = 0.5f;    //this way the raycast won't start below the ground
+    public float distanceToGround = 0f;
     public LayerMask groundLayer;               //invisible check for when the player's feet touch the ground
 
     [Header("Movement Flags")]
@@ -36,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isRunning = false;
     public bool isSprinting = false;
 
-    public bool isGrounded;
+    public bool isGrounded = true;
+    public bool isFalling = false;
 
     [Header("Movement Speed")]
     [SerializeField] private float moveSpeedSwitchValue = 0.5f;
@@ -80,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ChageRotation();
+        OnGround();
 
         Vector3 move = new Vector3(currentMovement.x * CurrentMoveSpeed, rb.velocity.y, currentMovement.z * CurrentMoveSpeed);
         move = Quaternion.AngleAxis(/*cam.m_XAxis.Value*/cam.transform.rotation.eulerAngles.y, Vector3.up) * move;
@@ -148,6 +151,31 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
+    }
+
+    private void OnGround() 
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit,math.INFINITY, groundLayer))
+        {
+            distanceToGround = hit.distance;
+            Debug.DrawLine(ray.origin, hit.point, Color.green);
+
+            if(distanceToGround >= 0.1f)
+            {
+                isGrounded = false;
+                isFalling = true;
+            }
+            else
+            {
+                isGrounded = true;
+                isFalling = false;
+            }
+
+        }
+
     }
 
     //private void Awake()
@@ -233,37 +261,37 @@ public class PlayerMovement : MonoBehaviour
 
     //private void OnFall()
     //{
-    //    //RaycastHit hit;
-    //    //Vector3 rayCastOrigin = transform.position;
-    //    //rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffSet;
+    //    RaycastHit hit;
+    //    Vector3 rayCastOrigin = transform.position;
+    //    rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffSet;
 
-    //    //if (!isGrounded)
-    //    //{
-    //    //    if (!playerManager.isInteracting)
-    //    //    {
-    //    //        animatorManager.PlayTargetAnimation("Falling", true);
-    //    //    }
+    //    if (!isGrounded)
+    //    {
+    //        if (!playerManager.isInteracting)
+    //        {
+    //            animatorManager.PlayTargetAnimation("Falling", true);
+    //        }
 
-    //    //    //the longer we are in the air, the quicker we are going to fall
-    //    //    inAirTimer = inAirTimer + Time.deltaTime;
-    //    //    playerRigidbody.AddForce(transform.forward * leapingVelocity);
-    //    //    playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
-    //    //}
+    //        //the longer we are in the air, the quicker we are going to fall
+    //        inAirTimer = inAirTimer + Time.deltaTime;
+    //        playerRigidbody.AddForce(transform.forward * leapingVelocity);
+    //        playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+    //    }
 
-    //    //if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
-    //    //{
-    //    //    if (!isGrounded && !playerManager.isInteracting)
-    //    //    {
-    //    //        animatorManager.PlayTargetAnimation("Landing", true);
-    //    //    }
+    //    if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+    //    {
+    //        if (!isGrounded && !playerManager.isInteracting)
+    //        {
+    //            animatorManager.PlayTargetAnimation("Landing", true);
+    //        }
 
-    //    //    inAirTimer = 0;
-    //    //    isGrounded = true;
-    //    //}
-    //    //else
-    //    //{
-    //    //    isGrounded = false;
-    //    //}
+    //        inAirTimer = 0;
+    //        isGrounded = true;
+    //    }
+    //    else
+    //    {
+    //        isGrounded = false;
+    //    }
     //}
 
     #endregion

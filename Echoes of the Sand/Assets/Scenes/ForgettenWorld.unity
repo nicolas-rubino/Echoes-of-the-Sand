@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1876,6 +1876,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 510080963}
+    - target: {fileID: 2467005339258316036, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2685449561960154523, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
         type: 3}
       propertyPath: m_Layer
@@ -1905,6 +1910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444890027276415374, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3451325720868014529, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
         type: 3}
@@ -2089,6 +2099,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1441213036}
+    - targetCorrespondingSourceObject: {fileID: 187127477667720795, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1441213038}
+    - targetCorrespondingSourceObject: {fileID: 187127477667720795, guid: 21f1d7b7b97b765409f35ce2ba1a7a13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1441213039}
   m_SourcePrefab: {fileID: 100100000, guid: 21f1d7b7b97b765409f35ce2ba1a7a13, type: 3}
 --- !u!4 &851064950 stripped
 Transform:
@@ -2611,6 +2629,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 2044956224}
   isInteracting: 0
+--- !u!95 &1441213038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441213032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c091debfa11f5804baf5854c7b69599a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1441213039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441213032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdb53b75c2808f4e9b5745407287b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1448436125
 PrefabInstance:
   m_ObjectHideFlags: 0
