@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
+    private Transform _playerTransform;
+
     private float _timer;
-    private float _attackCooldown = 2f;
+
     private float _exitTimer;
-    private float _timeTillExit = 3f;
-    private float _timeBetweenShots = 3f;
+    private float _timerTillExit;
+
+    private float _timeBetweenShots = 2f;
     public EnemyAttackState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
@@ -21,6 +25,8 @@ public class EnemyAttackState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
+        enemy.GetComponent<Animator>().Play("attack");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage();
     }
 
     public override void ExitState()
@@ -35,24 +41,32 @@ public class EnemyAttackState : EnemyState
 
         
         enemy.MoveEnemy(Vector3.zero);
-
-
-        if(enemy.IsWithinStrikingDistance == false && enemy.IsAggroed)
-        {
-            enemy.StateMachine.ChangeState(enemy.ChaseState);
-        }
-        if(enemy.IsAggroed == false){
-            enemy.StateMachine.ChangeState(enemy.IdleState);
-        }
-        /*
-        if(_timer > _timeBetweenShots)
+        if ( _timer > _timeBetweenShots)
         {
             _timer = 0f;
 
+            enemy.GetComponent<Animator>().Play("attack");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage();
+
+        }
+
+        if (Vector3.Distance(_playerTransform.position, enemy.transform.position) > 5)
+        {
+            _exitTimer += Time.deltaTime;
+            
+            if(_exitTimer > _timerTillExit)
+            {
+                Debug.Log("CHANGED TO CHASE");
+                enemy.StateMachine.ChangeState(enemy.ChaseState);
+            }
+        }
+        else
+        {
+            _exitTimer = 0f;
             
         }
         _timer += Time.deltaTime;
-        */
+       
 
     }
 

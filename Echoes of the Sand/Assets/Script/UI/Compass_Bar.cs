@@ -8,17 +8,27 @@ public class Compass_Bar : MonoBehaviour
 
     public RectTransform objectiveMarkerTransform;
     public RectTransform northMarkerTransform;
+    public RectTransform westMarkerTransform;
+    public RectTransform eastMarkerTransform;
     public RectTransform southMarkerTransform;
 
     public Transform cameraTransform;
     public Transform objectiveTransform;
+    public Transform northTransform;
+    public Transform eastTransform;
+    public Transform westTransform;
+    public Transform southTransform;
 
     // Update is called once per frame
     void Update()
     {
         SetMarkerPosition(objectiveMarkerTransform, objectiveTransform.position);
-        SetMarkerPosition(northMarkerTransform, Vector3.forward * 1000);
-        SetMarkerPosition(southMarkerTransform, Vector3.back * 1000);
+        SetMarkerPosition(northMarkerTransform, northTransform.position);
+        SetMarkerPosition(westMarkerTransform, westTransform.position);
+        SetMarkerPosition(eastMarkerTransform, eastTransform.position);
+        SetMarkerPosition(southMarkerTransform, southTransform.position);
+       // SetMarkerPosition(northMarkerTransform, Vector3.forward * 1000);
+        //SetMarkerPosition(southMarkerTransform, Vector3.back * 1000);
 
     }
 

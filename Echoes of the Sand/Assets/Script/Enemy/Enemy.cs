@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour
 
     [field: SerializeField] public float MaxHealth { get; set;} = 100f;
 
-    Animator animatorController;
+    [SerializeField] Animator animatorController;
     public float CurrHealth { get; set; }
     public Rigidbody RB { get; set; }
     public float rotationY { get; set; }
     [SerializeField] public bool IsAggroed { get; set; }
     public bool IsWithinStrikingDistance { get; set; }
+    public bool IsAttackOnCooldown { get; set; }
 
     // STATE MACHINE VARIABLES
     public EnemyStateMachine StateMachine { get; set; }
@@ -37,7 +38,6 @@ public class Enemy : MonoBehaviour
     private void Start(){
         CurrHealth = MaxHealth;
         RB = GetComponent<Rigidbody>();
-        animatorController = GetComponent<Animator>();
         StateMachine.Initialize(IdleState);
     }
 
@@ -91,12 +91,20 @@ public class Enemy : MonoBehaviour
         Debug.Log("AGGRO distance ACTIVATED");
 
     }
-
+     
     public void SetStrikingDistance(bool isWithinStrikingDistance)
     {
         IsWithinStrikingDistance = isWithinStrikingDistance;
-        animatorController.SetBool("IsWithinStrikingDistance",isWithinStrikingDistance);
+        //animatorController.SetBool("IsWithinStrikingDistance",isWithinStrikingDistance);
         Debug.Log("Striking distance ACTIVATED");
+
+    }
+
+    public void SetAttackOnCooldown(bool isAttackOnCooldown)
+    {
+        IsAttackOnCooldown = isAttackOnCooldown;
+        animatorController.SetBool("IsAttackOnCooldown", isAttackOnCooldown);
+        Debug.Log("Cooldown ACTIVATED");
 
     }
 

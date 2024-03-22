@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDamageable
 {
     Animator animator;
     InputManager inputManager;
     PlayerMovement playerMovement;
+
+    [SerializeField] Health_Bar health; 
 
     public bool isInteracting;
 
@@ -30,5 +33,10 @@ public class PlayerManager : MonoBehaviour
     private void LateUpdate()
     {
 
+    }
+
+    public void TakeDamage()
+    {
+        health.Hit();
     }
 }
