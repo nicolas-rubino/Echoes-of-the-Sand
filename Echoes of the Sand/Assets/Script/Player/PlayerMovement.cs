@@ -83,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(currentMovement.x * CurrentMoveSpeed, rb.velocity.y, currentMovement.z * CurrentMoveSpeed);
         move = Quaternion.AngleAxis(/*cam.m_XAxis.Value*/cam.transform.rotation.eulerAngles.y, Vector3.up) * move;
-        Debug.Log(move);    
-        Debug.Log(cam.transform.rotation.eulerAngles.y);
+        //Debug.Log(move);    
+        //Debug.Log(cam.transform.rotation.eulerAngles.y);
         rb.velocity = move;
     }
 

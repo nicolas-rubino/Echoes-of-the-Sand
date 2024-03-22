@@ -14,6 +14,8 @@ public class HoverBike : MonoBehaviour
     [SerializeField] private float vitesseRotation = 50f;                                       //vitesse de la rotattion du Hoverbike
     [SerializeField] private float rotationRoll = 15f;                                          //angle desiser lors des virage
     Vector2 input;
+    [SerializeField] private float dragOn = 1;
+    [SerializeField] private float dragOff = 100;
     private float currentSpeed
     {
         get 
@@ -29,13 +31,18 @@ public class HoverBike : MonoBehaviour
     [SerializeField] private bool hover = false;                                                //bool pour savoir si Hover
     [SerializeField] private float vitesseAjustement = 5f;                                      //vitesse de l'ajustement de l'hover
     [SerializeField] private float distanceHover = 3f;                                          //hauter desirer pour le hover du hoverbike
-    [SerializeField] private float maxHover = 10f;                                              //hauter max du hovering
+    [SerializeField] private float distanceHoverOn = 3f;
+    [SerializeField] private float distanceHoverOff = 0.5f;
+    [SerializeField] internal float maxHover = 10f;                                             //hauter max du hovering
     [SerializeField] internal List<GameObject> listeRayEngine = new List<GameObject>();         //liste des point pour les raycast afin de conaitre hauteur
     private List<float> ListeDistanceSol = new List<float>();                                   //liste de tout les hauteur
     private float distanceAjusteeAuSol;                                                         //moyenne des distance
 
     [Header("Rotation")]
     [SerializeField] private float distanceRotation = 3f;                                       //distance pour ajuter la rotation avec sel du sol
+    [SerializeField] private float distanceRotationOn = 3f;
+    [SerializeField] private float distanceRotationOff = 0.3f;
+
     [SerializeField] private float rotationSpeed = 100f;                                        //vitesse pour attaidre la rotation
     [SerializeField] internal List<GameObject> listeRayRotation = new List<GameObject>();       //liste des point pour les raycast afin de conaitre la rotation
     private Vector3 targetRotation;                                                             //rotation desirer pour le Hoverbike
@@ -45,7 +52,7 @@ public class HoverBike : MonoBehaviour
     //autre
     [Header("Player Seat")]
     [SerializeField] public bool playerMount = false;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] internal LayerMask layerMask;
     [SerializeField] GameObject player;
     [SerializeField] CapsuleCollider playerCollider;
     [SerializeField] Transform seat;
@@ -70,11 +77,13 @@ public class HoverBike : MonoBehaviour
         if (playerMount)
         {
             AdjustPlayerPos();
-            distanceHover = 3f;
+            distanceHover = distanceHoverOn;
+            distanceRotation = distanceRotationOn;
         }
         else
         {
-            distanceHover = 0.2f;
+            distanceHover = distanceHoverOff;
+            distanceRotation = distanceRotationOff;
         }
     }
 
@@ -250,6 +259,9 @@ public class HoverBike : MonoBehaviour
             playerCollider.enabled = false;
             player.transform.parent = this.transform;
 
+            rb.drag = dragOn;
+            rb.angularDrag = dragOn;
+
         }
         else
         {
@@ -258,6 +270,11 @@ public class HoverBike : MonoBehaviour
             playerRb.isKinematic = false;
             playerCollider.enabled = true;
             player.transform.parent =null;
+
+            rb.drag = dragOff;
+            rb.angularDrag = dragOff;
+
+            input = Vector2.zero;
         }
     }
 

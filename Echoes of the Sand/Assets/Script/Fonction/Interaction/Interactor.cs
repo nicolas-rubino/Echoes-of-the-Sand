@@ -84,7 +84,7 @@ public class Interactor : MonoBehaviour
                 interactable = i;
                 findBike = true;
             }
-            Debug.Log("Devrait marcher");
+            //Debug.Log("Devrait marcher");
         }
 
 
