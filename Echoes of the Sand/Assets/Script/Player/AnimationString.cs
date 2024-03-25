@@ -9,4 +9,5 @@ internal class AnimationString : MonoBehaviour
     internal static string isRunning = "Running";
     internal static string isSprinting = "Sprinting";
     internal static string isFalling = "Falling";
+    internal static string isAiming = "Aiming";
 }

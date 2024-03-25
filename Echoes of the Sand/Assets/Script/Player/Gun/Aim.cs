@@ -10,7 +10,7 @@ public class Aim : MonoBehaviour
     [SerializeField] private Transform aimFocus;
     [SerializeField] private CinemachineFreeLook cam;
     [SerializeField] private float diviseur;
-    public bool isAming = false;
+    internal bool isAming = false;
     public Vector3 ring;
     private Vector3 CurrentRing
     {

@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(Aim))]
 public class AnimatorManager : MonoBehaviour
 {
+
     Animator animator;
     //InputManager inputManager;
     PlayerMovement playerMovement;
+    Aim aim;
     int horizontal;
     int vertical;
     bool isIdle = true;
@@ -14,12 +19,14 @@ public class AnimatorManager : MonoBehaviour
     bool isRunning = false;
     bool isSprinting = false;
     bool isFalling = false;
+    bool isAiming = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         //inputManager = GetComponent<InputManager>();
         playerMovement = GetComponent<PlayerMovement>();
+        aim = GetComponent<Aim>();
 
         horizontal = Animator.StringToHash("Horizontal");       //reference to the parameters in the Animator
         vertical = Animator.StringToHash("Vertical");
@@ -33,12 +40,14 @@ public class AnimatorManager : MonoBehaviour
         isRunning = playerMovement.isRunning;
         isSprinting = playerMovement.isSprinting;
         isFalling = playerMovement.isFalling;
+        isAiming = aim.isAming;
 
         animator.SetBool(AnimationString.isIdle, isIdle);
         animator.SetBool(AnimationString.isWalking, isWalking);
         animator.SetBool(AnimationString.isRunning, isRunning);
         animator.SetBool(AnimationString.isSprinting, isSprinting);
         animator.SetBool(AnimationString.isFalling, isFalling);
+        animator.SetBool(AnimationString.isAiming, isAiming);
     }
 
     //will play any animation that we want when called, isInteracting is the bool the checks if the player is locked in an animation

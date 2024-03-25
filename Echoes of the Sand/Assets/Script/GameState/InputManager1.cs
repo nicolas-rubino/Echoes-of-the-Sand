@@ -13,6 +13,7 @@ public class InputManager1 : MonoBehaviour
     [SerializeField] HoverBike hoverBike;
     [SerializeField] CameraController cameraController;
     [SerializeField] Aim aim;
+    [SerializeField] Gun gun;
 
     public static bool isAimingInput = false;
     public static bool isShooting = false;
@@ -73,6 +74,11 @@ public class InputManager1 : MonoBehaviour
     public void OnAim(InputAction.CallbackContext context)
     {
         aim.OnAim(context);
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        gun.OnShoot(context);
     }
 
 

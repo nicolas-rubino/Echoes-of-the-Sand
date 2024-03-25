@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(move);    
         //Debug.Log(cam.transform.rotation.eulerAngles.y);
         rb.velocity = move;
+
     }
 
     public void OnMove(InputAction.CallbackContext context)

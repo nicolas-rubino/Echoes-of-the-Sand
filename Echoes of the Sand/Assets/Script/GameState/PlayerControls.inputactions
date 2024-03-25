@@ -260,7 +260,7 @@
                 {
                     "name": "",
                     "id": "f4bb4706-7fc1-48a7-8dfa-c0e35dfd8aa4",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -272,6 +272,17 @@
                     "name": "",
                     "id": "e5b2cf3d-0e9d-4994-b88f-a884fde8257b",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eba684a7-5cab-4094-bdd5-49af82c1261f",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
