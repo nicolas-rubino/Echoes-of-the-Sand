@@ -445,14 +445,16 @@ MonoBehaviour:
   leapingVelocity: 0
   fallingVelocity: 0
   rayCastHeightOffSet: 0.5
+  distanceToGround: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   isIdle: 1
   isWalking: 0
   isRunning: 0
   isSprinting: 0
   isGrounded: 0
+  isFalling: 0
   moveSpeedSwitchValue: 0.5
   walkingSpeed: 1.5
   runningSpeed: 5
@@ -474,7 +476,6 @@ MonoBehaviour:
   aimFocus: {fileID: 7794576379746689424}
   cam: {fileID: 0}
   diviseur: 2
-  isAming: 0
   ring: {x: 0, y: 0, z: 0}
 --- !u!4 &707944611358258401 stripped
 Transform:

@@ -21,6 +21,10 @@ public class InputManager1 : MonoBehaviour
     private void Awake()
     {
         //controls = new PlayerControls();
+
+        //desactif l'affichage de la sourie et loock sa position    
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnEnable()

@@ -6,10 +6,14 @@ using Cinemachine;
 using UnityEngine.Windows;
 using Unity.Mathematics;
 
+[RequireComponent(typeof(Aim))]
 public class PlayerMovement : MonoBehaviour
 {   
     //Reference variables
     Rigidbody rb;
+    Aim aim;
+    bool isAiming = false;
+
     //[SerializeField] private CinemachineFreeLook cam;
     [SerializeField] private Camera cam;
 
@@ -77,10 +81,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animatorManager = GetComponent<AnimatorManager>();
+        aim = GetComponent<Aim>();
     }
 
     private void FixedUpdate()
     {
+        isAiming = aim.isAming;
+
         ChageRotation();
         OnGround();
 
@@ -146,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 input = new Vector2(currentMovement.x, currentMovement.z);
 
-        if (!isIdle)
+        if (!isIdle || isAiming)
         {
             float targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + /*cam.m_XAxis.Value*/ cam.transform.rotation.eulerAngles.y;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);

@@ -9,5 +9,6 @@ public class EnterHoverBike : InteractableObjectBase
     {
         HoverBike bike = GetComponent<HoverBike>();
         bike.OnPlayerSeat();
+
     }
 }
