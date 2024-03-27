@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -9,7 +10,10 @@ public class HoverParticul : MonoBehaviour
     HoverBike bike;
     [SerializeField] GameObject hoverEffect;
     [SerializeField] List<GameObject> hoverParticles;
-    public bool emeting = false;
+
+    [SerializeField] Transform Engine;
+    [SerializeField] GameObject EngineParticles;
+    ParticleSystem engineEffect;
 
     private void Awake()
     {
@@ -21,11 +25,43 @@ public class HoverParticul : MonoBehaviour
             objecInstance.transform.parent = this.transform;
             hoverParticles.Add(objecInstance);
         }
+
     }
 
     void Update()
     {
+        HoverEffect();
 
+        EngineEffect();
+
+
+    }
+
+    private void EngineEffect()
+    {
+        if(engineEffect == null)
+        {
+            Instantiate(EngineParticles, Engine.transform.position, Quaternion.identity);
+            EngineParticles.transform.parent = this.transform;
+            engineEffect = EngineParticles.GetComponent<ParticleSystem>();
+            engineEffect.Stop();
+        }
+
+
+        if (bike.playerMount)
+        {
+            engineEffect.Play();
+            engineEffect.startSpeed = bike.vitesse;
+
+        }
+        else
+        {
+            engineEffect.Stop();
+        }
+    }
+
+    private void HoverEffect()
+    {
         for (int i = 0; i < hoverParticles.Count; i++)
         {
             ParticleSystem particul = hoverParticles[i].GetComponent<ParticleSystem>();
@@ -42,23 +78,18 @@ public class HoverParticul : MonoBehaviour
                     hoverParticles[i].transform.position = hit.point;
                     hoverParticles[i].transform.rotation = Quaternion.LookRotation(hit.normal);
                     particul.Play();
-                    emeting = true;
+                  
                     Debug.DrawLine(ray.origin, hit.point, Color.magenta);
-
                 }
                 else
                 {
                     particul.Stop();
-                    emeting = false;
                 }
 
             }
             else
             {
                 particul.Stop();
-                emeting = false;
-
-     
             }
 
         }

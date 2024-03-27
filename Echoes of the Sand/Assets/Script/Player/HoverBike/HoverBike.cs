@@ -9,6 +9,7 @@ public class HoverBike : MonoBehaviour
 {
     [Header("Controle")]
     [SerializeField] private float speed = 10f;                                                 //vitesse du HoverBike
+    [SerializeField] internal float vitesse = 0f;
     [SerializeField] private float boostSpeed = 3000f;                                          //vitesse du Hoverbike en boost
     private bool isBoost = false;
     [SerializeField] private float vitesseRotation = 50f;                                       //vitesse de la rotattion du Hoverbike
@@ -85,6 +86,8 @@ public class HoverBike : MonoBehaviour
             distanceHover = distanceHoverOff;
             distanceRotation = distanceRotationOff;
         }
+
+        vitesse = rb.velocity.magnitude;
     }
 
     private void Move(Vector2 input)
