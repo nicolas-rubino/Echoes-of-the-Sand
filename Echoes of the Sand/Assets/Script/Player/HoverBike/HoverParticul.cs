@@ -26,6 +26,9 @@ public class HoverParticul : MonoBehaviour
             hoverParticles.Add(objecInstance);
         }
 
+
+        engineEffect = EngineParticles.GetComponent<ParticleSystem>();
+        engineEffect.Stop();
     }
 
     void Update()
@@ -39,19 +42,14 @@ public class HoverParticul : MonoBehaviour
 
     private void EngineEffect()
     {
-        if(engineEffect == null)
-        {
-            Instantiate(EngineParticles, Engine.transform.position, Quaternion.identity);
-            EngineParticles.transform.parent = this.transform;
-            engineEffect = EngineParticles.GetComponent<ParticleSystem>();
-            engineEffect.Stop();
-        }
+        var main = engineEffect.main;
+        EngineParticles.transform.position = engineEffect.transform.position;
 
 
         if (bike.playerMount)
         {
             engineEffect.Play();
-            engineEffect.startSpeed = bike.vitesse;
+            main.startSpeedMultiplier = bike.vitesse/2;
 
         }
         else
