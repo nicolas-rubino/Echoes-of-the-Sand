@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(HoverBike))]
 public class HoverParticul : MonoBehaviour
@@ -11,9 +12,14 @@ public class HoverParticul : MonoBehaviour
     [SerializeField] GameObject hoverEffect;
     [SerializeField] List<GameObject> hoverParticles;
 
-    [SerializeField] Transform Engine;
-    [SerializeField] GameObject EngineParticles;
-    ParticleSystem engineEffect;
+    [SerializeField] GameObject engine;
+
+    TrailRenderer engineTrail;
+
+
+    [SerializeField] GameObject dustTrail;
+    [SerializeField] VisualEffect VFXdustTrail;
+
 
     private void Awake()
     {
@@ -27,8 +33,9 @@ public class HoverParticul : MonoBehaviour
         }
 
 
-        engineEffect = EngineParticles.GetComponent<ParticleSystem>();
-        engineEffect.Stop();
+        engineTrail = GetComponentInChildren<TrailRenderer>();
+
+        VFXdustTrail.SendEvent("OnPlay");
     }
 
     void Update()
@@ -37,24 +44,19 @@ public class HoverParticul : MonoBehaviour
 
         EngineEffect();
 
-
+        DustTrail();
     }
 
     private void EngineEffect()
-    {
-        var main = engineEffect.main;
-        EngineParticles.transform.position = engineEffect.transform.position;
-
+    { 
 
         if (bike.playerMount)
         {
-            engineEffect.Play();
-            main.startSpeedMultiplier = bike.vitesse/2;
-
+            engineTrail.emitting = true;
         }
         else
         {
-            engineEffect.Stop();
+           engineTrail.emitting = false;
         }
     }
 
@@ -71,7 +73,7 @@ public class HoverParticul : MonoBehaviour
             if (bike.playerMount)
             {
                 // Vérifie si le rayon touche quelque chose
-                if (Physics.Raycast(ray, out hit, bike.maxHover, bike.layerMask))
+                if (Physics.Raycast(ray, out hit, bike.maxHover+1f, bike.layerMask))
                 {
                     hoverParticles[i].transform.position = hit.point;
                     hoverParticles[i].transform.rotation = Quaternion.LookRotation(hit.normal);
@@ -91,6 +93,37 @@ public class HoverParticul : MonoBehaviour
             }
 
         }
+
+    }
+
+    void DustTrail()
+    {
+        Ray ray = new Ray(engine.transform.position, Vector3.down);
+        RaycastHit hit;
+
+        if (bike.playerMount)
+        {
+
+            if (Physics.Raycast(ray, out hit, bike.maxHover+5f, bike.layerMask))
+            {
+                dustTrail.transform.position = hit.point;
+                VFXdustTrail.SendEvent("OnPlay");
+
+                //VFXdustTrail.SetFloat("Start Speed", bike.vitesse);
+                Debug.DrawLine(ray.origin, hit.point, Color.magenta);
+            }
+            else
+            {
+                VFXdustTrail.SendEvent("OnStop");
+            }
+
+        }
+        else
+        {
+            VFXdustTrail.SendEvent("OnStop");
+        }
+
+
 
     }
 }

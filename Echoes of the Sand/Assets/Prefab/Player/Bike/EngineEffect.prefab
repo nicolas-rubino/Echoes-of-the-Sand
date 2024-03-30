@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.19581985
+      scalar: 3.9883716
       minScalar: 5
       maxCurve:
         serializedVersion: 2
