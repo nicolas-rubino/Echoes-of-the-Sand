@@ -35,7 +35,8 @@ public class HoverParticul : MonoBehaviour
 
         engineTrail = GetComponentInChildren<TrailRenderer>();
 
-        VFXdustTrail.SendEvent("OnPlay");
+        //VFXdustTrail.SendEvent("OnPlay");
+        VFXdustTrail.Play();
     }
 
     void Update()
@@ -107,23 +108,18 @@ public class HoverParticul : MonoBehaviour
             if (Physics.Raycast(ray, out hit, bike.maxHover+5f, bike.layerMask))
             {
                 dustTrail.transform.position = hit.point;
-                VFXdustTrail.SendEvent("OnPlay");
-
-                //VFXdustTrail.SetFloat("Start Speed", bike.vitesse);
+                VFXdustTrail.Play();
                 Debug.DrawLine(ray.origin, hit.point, Color.magenta);
             }
             else
             {
-                VFXdustTrail.SendEvent("OnStop");
+                VFXdustTrail.Stop();
             }
 
         }
         else
         {
-            VFXdustTrail.SendEvent("OnStop");
+            VFXdustTrail.Stop();
         }
-
-
-
     }
 }
