@@ -36,11 +36,16 @@ public class HoverParticul : MonoBehaviour
         engineTrail = GetComponentInChildren<TrailRenderer>();
         
         //VFXdustTrail.SendEvent("OnPlay");
-        VFXdustTrail.enabled = true;
+        VFXdustTrail.enabled = false;
         VFXdustTrail.Play();
-        VFXdustTrail.playRate = 100f;
+        VFXdustTrail.playRate = 1f;
 
         Debug.Log(VFXdustTrail.name);
+    }
+
+    private void Start()
+    {
+           VFXdustTrail.enabled = true;
     }
 
     void Update()
