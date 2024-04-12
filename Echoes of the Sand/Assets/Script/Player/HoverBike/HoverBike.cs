@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -59,6 +60,11 @@ public class HoverBike : MonoBehaviour
     [SerializeField] Transform seat;
     [SerializeField] Rigidbody playerRb;
     [SerializeField] Transform exit;
+
+    [Header("Fuel")]
+    [SerializeField] GameObject fuelSlider;
+
+
     private Rigidbody rb;
 
     void Start()
@@ -72,7 +78,7 @@ public class HoverBike : MonoBehaviour
         Hover();
         AdjustRotation();
 
-        //cree une nouvelle velociter pour le mouvement
+        //cree une nouvelle velocite pour le mouvement
         rb.velocity = new Vector3(rb.velocity.x, AdjustVelocityY(), rb.velocity.z);
 
         if (playerMount)
@@ -80,6 +86,8 @@ public class HoverBike : MonoBehaviour
             AdjustPlayerPos();
             distanceHover = distanceHoverOn;
             distanceRotation = distanceRotationOn;
+
+          
         }
         else
         {
@@ -113,7 +121,12 @@ public class HoverBike : MonoBehaviour
         //get l'axe vertical pour avencer
         float Vitesse = input.y * currentSpeed;
         rb.AddForce(transform.forward * Vitesse);
-        
+
+        //update le fuel tank
+        if(vitesse > 5) {
+            fuelSlider.GetComponent<Health_Bar>().useFuel(0.0001f);
+        }
+
     }
 
     public void OnBoost(InputAction.CallbackContext context)
