@@ -57,6 +57,7 @@ public class InputManager1 : MonoBehaviour
         if (hoverBike.playerMount)
         {
            hoverBike.OnBoost(context);
+            
         }
         else
         {

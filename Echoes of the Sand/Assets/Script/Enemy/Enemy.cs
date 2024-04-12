@@ -52,13 +52,23 @@ public class Enemy : MonoBehaviour
     {
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("Hit");
+            Damage(50);
+            Destroy(collision.gameObject);
+        }
+    }
     public void Damage(float damagePoints)
     {
         CurrHealth =- damagePoints;
         
         if (CurrHealth <= 0f)
         {
-            Die();
+            animatorController.Play("Death");
         }
     }
 

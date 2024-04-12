@@ -63,6 +63,8 @@ public class HoverBike : MonoBehaviour
 
     [Header("Fuel")]
     [SerializeField] GameObject fuelSlider;
+    [SerializeField] float fuelUsedOnBoost = 0.0005f;
+    [SerializeField] float minFuelToBoost = 0.3f;
 
 
     private Rigidbody rb;
@@ -122,20 +124,24 @@ public class HoverBike : MonoBehaviour
         float Vitesse = input.y * currentSpeed;
         rb.AddForce(transform.forward * Vitesse);
 
-        //update le fuel tank
-        if(vitesse > 5) {
-            fuelSlider.GetComponent<Health_Bar>().useFuel(0.0001f);
+        if (isBoost)
+        {
+            //update le fuel tank
+            fuelSlider.GetComponent<Health_Bar>().useFuel(fuelUsedOnBoost);
+            if (fuelSlider.GetComponent<Health_Bar>().isEmpty(fuelUsedOnBoost))
+            {
+                isBoost = false;
+            }
         }
-
     }
 
     public void OnBoost(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && !fuelSlider.GetComponent<Health_Bar>().isEmpty(minFuelToBoost) )
         {
             isBoost = true;
         }    
-        if(context.canceled)
+        else if(context.canceled)
         {
             isBoost = false;
         }

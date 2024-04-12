@@ -12,7 +12,8 @@ public class Health_Bar : MonoBehaviour
 
     [SerializeField] float r, g, b, a;
     [SerializeField] bool isHealth;
-    [SerializeField] bool isEnergy = false;
+    [SerializeField] bool isRechargable = false;
+    [SerializeField] bool isFuel = false;
 
     void Start()
     {
@@ -25,8 +26,12 @@ public class Health_Bar : MonoBehaviour
     //
     private void FixedUpdate()
     {
-        if(isEnergy) {
+        if(isRechargable) {
             healthBarValue.value += 0.001f;
+        }
+        else if(isFuel)
+        {
+            healthBarValue.value += 0.0005f;
         }
     }
 
@@ -79,5 +84,10 @@ public class Health_Bar : MonoBehaviour
     public bool isEmpty(float amountNeeded)
     {
         return healthBarValue.value < amountNeeded;
+    }
+    
+    public bool isFull()
+    {
+        return healthBarValue.value == 1;
     }
 }
